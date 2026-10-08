@@ -3,172 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plataforma de Gestão e Processos - SEPLAG / MPMA</title>
+    <title>Plataforma SEPLAG - MPMA</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-    </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased">
+<body class="bg-slate-100 text-slate-800 font-sans antialiased">
 
-    <!-- Cabeçalho Institucional MPMA / SEPLAG -->
+    <!-- Cabeçalho -->
     <header class="bg-[#0f2a4a] text-white shadow-md border-b-4 border-[#c59b27]">
-        <div class="max-w-7xl mx-auto px-6 py-5 flex flex-col md:flex-row justify-between items-center">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center">
             <div class="flex items-center space-x-4">
-                <div class="bg-white p-2 rounded-lg shadow-sm flex items-center justify-center">
-                    <img src="logo-mpma.png" alt="Logo MPMA" class="h-14 w-auto object-contain">
+                <div class="bg-white p-2 rounded-lg shadow-sm">
+                    <img src="logo-mpma.png" alt="Logo MPMA" class="h-12 w-auto object-contain">
                 </div>
                 <div>
-                    <span class="text-xs uppercase tracking-widest text-[#c59b27] font-semibold">Ministério Público do Estado do Maranhão • SEPLAG</span>
-                    <h1 class="text-xl md:text-2xl font-bold mt-0.5">Plataforma de Processos e Gestão Estratégica</h1>
+                    <span class="text-xs uppercase tracking-widest text-[#c59b27] font-semibold">Ministério Público do Maranhão</span>
+                    <h1 class="text-xl font-bold">SEPLAG • Gestão e Processos</h1>
                 </div>
             </div>
             
-            <!-- Seletor Principal de Módulos (Abas) -->
-            <div class="mt-4 md:mt-0 flex space-x-2 bg-[#163a63] p-1.5 rounded-xl border border-[#234d7d]">
-                <button onclick="switchModule('papj')" id="mod-btn-papj" class="px-4 py-2 rounded-lg text-xs font-bold transition-all bg-white text-[#0f2a4a] shadow-sm cursor-pointer">
+            <!-- Botões Principais de Alternância de Módulo -->
+            <div class="mt-4 md:mt-0 flex space-x-2 bg-[#163a63] p-1 rounded-lg border border-[#234d7d]">
+                <button id="btn-mod1" onclick="mudarModulo(1)" class="px-4 py-2 rounded-md text-xs font-bold bg-white text-[#0f2a4a] shadow cursor-pointer transition">
                     Módulo 1: Treinamento PAPJ
                 </button>
-                <button onclick="switchModule('sp04')" id="mod-btn-sp04" class="px-4 py-2 rounded-lg text-xs font-bold transition-all text-slate-200 hover:text-white cursor-pointer">
-                    Módulo 2: Processo SP-04 (Estratégia)
+                <button id="btn-mod2" onclick="mudarModulo(2)" class="px-4 py-2 rounded-md text-xs font-bold text-slate-200 hover:text-white cursor-pointer transition">
+                    Módulo 2: Processo SP-04
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- CONTEÚDO DO MÓDULO 1: TREINAMENTO PAPJ -->
-    <div id="module-papj" class="main-module">
-        <main class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div class="lg:col-span-1 space-y-4">
-                <h2 class="text-lg font-semibold text-slate-700 border-b pb-2">Módulos de Aprendizagem</h2>
-                <div class="space-y-3">
-                    <button onclick="switchTab('desafio')" id="btn-desafio" class="w-full text-left p-4 rounded-xl border transition-all flex items-start space-x-3 bg-white border-[#0f2a4a] ring-2 ring-blue-100 shadow-sm cursor-pointer">
-                        <div id="badge-desafio" class="flex-shrink-0 w-8 h-8 rounded-lg bg-blue-50 text-[#0f2a4a] font-semibold flex items-center justify-center text-sm">1</div>
-                        <div>
-                            <h3 class="font-semibold text-slate-800 text-sm">O Desafio e a Solução</h3>
-                            <p class="text-xs text-slate-500 mt-1">Por que usar IA no planejamento?</p>
-                        </div>
-                    </button>
-                    <button onclick="switchTab('workflow')" id="btn-workflow" class="w-full text-left p-4 rounded-xl border transition-all flex items-start space-x-3 bg-white border-slate-200 hover:border-blue-400 cursor-pointer">
-                        <div id="badge-workflow" class="flex-shrink-0 w-8 h-8 rounded-lg bg-slate-100 text-slate-700 font-semibold flex items-center justify-center text-sm">2</div>
-                        <div>
-                            <h3 class="font-semibold text-slate-800 text-sm">Workflow Híbrido</h3>
-                            <p class="text-xs text-slate-500 mt-1">Do rascunho ao Portal Oficial</p>
-                        </div>
-                    </button>
-                    <button onclick="switchTab('prompt')" id="btn-prompt" class="w-full text-left p-4 rounded-xl border transition-all flex items-start space-x-3 bg-white border-slate-200 hover:border-blue-400 cursor-pointer">
-                        <div id="badge-prompt" class="flex-shrink-0 w-8 h-8 rounded-lg bg-slate-100 text-slate-700 font-semibold flex items-center justify-center text-sm">3</div>
-                        <div>
-                            <h3 class="font-semibold text-slate-800 text-sm">Engenharia de Prompt</h3>
-                            <p class="text-xs text-slate-500 mt-1">Comparativo: Prompt Ruim vs. Bom</p>
-                        </div>
-                    </button>
-                    <button onclick="switchTab('regras')" id="btn-regras" class="w-full text-left p-4 rounded-xl border transition-all flex items-start space-x-3 bg-white border-slate-200 hover:border-blue-400 cursor-pointer">
-                        <div id="badge-regras" class="flex-shrink-0 w-8 h-8 rounded-lg bg-slate-100 text-slate-700 font-semibold flex items-center justify-center text-sm">4</div>
-                        <div>
-                            <h3 class="font-semibold text-slate-800 text-sm">As 3 Regras de Ouro</h3>
-                            <p class="text-xs text-slate-500 mt-1">Autonomia, Indução e Validação</p>
-                        </div>
-                    </button>
-                </div>
-            </div>
+    <!-- Conteúdo Principal -->
+    <main class="max-w-7xl mx-auto px-6 py-8">
 
-            <div class="lg:col-span-2">
-                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-8 sticky top-6">
-                    <div id="content-desafio" class="tab-content space-y-6">
-                        <div>
-                            <span class="text-xs font-semibold text-[#0f2a4a] uppercase tracking-wider">Módulo 01</span>
-                            <h2 class="text-2xl font-bold text-slate-900 mt-1">Do Problema à Solução Inteligente</h2>
-                            <p class="text-slate-600 text-sm mt-2">Superando a tela em branco no planejamento estratégico das Promotorias.</p>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="bg-red-50 border border-red-200 rounded-lg p-5">
-                                <h4 class="text-xs font-bold uppercase tracking-wider text-red-600 mb-2">O Problema</h4>
-                                <p class="text-sm text-slate-700 leading-relaxed">Membros e Assessores gastam horas valiosas pensando na justificativa técnica ideal e nos indicadores corretos.</p>
-                            </div>
-                            <div class="bg-blue-50 border border-blue-200 rounded-lg p-5">
-                                <h4 class="text-xs font-bold uppercase tracking-wider text-[#0f2a4a] mb-2">A Solução (Analista de PAPJ)</h4>
-                                <p class="text-sm text-slate-700 leading-relaxed">Gera um plano completo em segundos, com base no Manual de Resolutividade do CNMP.</p>
-                            </div>
-                        </div>
+        <!-- MÓDULO 1: PAPJ -->
+        <div id="secao-mod1" class="space-y-6">
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                <span class="text-xs font-bold text-[#0f2a4a] uppercase">Módulo de Aprendizagem</span>
+                <h2 class="text-2xl font-bold text-slate-900 mt-1">Treinamento PAPJ: O Fim da Tela em Branco</h2>
+                <p class="text-slate-600 text-sm mt-2">Guia prático para novos Promotores estruturarem planos de ação com o auxílio da inteligência artificial institucional.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                    <div class="p-4 bg-slate-50 border rounded-lg">
+                        <h3 class="font-bold text-[#0f2a4a] text-sm mb-1">1. O Desafio e a Solução</h3>
+                        <p class="text-xs text-slate-600">Superação da dificuldade inicial na criação de justificativas técnicas e indicadores pelo Manual do CNMP.</p>
                     </div>
-
-                    <div id="content-workflow" class="tab-content hidden space-y-6">
-                        <div>
-                            <span class="text-xs font-semibold text-[#0f2a4a] uppercase tracking-wider">Módulo 02</span>
-                            <h2 class="text-2xl font-bold text-slate-900 mt-1">Workflow Híbrido: Do Rascunho à Oficialização</h2>
-                        </div>
-                        <div class="space-y-3">
-                            <div class="flex items-start space-x-4 p-3 bg-slate-50 rounded-lg border border-slate-200">
-                                <span class="bg-[#0f2a4a] text-white w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shrink-0">1</span>
-                                <div><strong class="text-sm text-slate-800">Acesse o Gem:</strong> <span class="text-sm text-slate-600">Entre no Analista de PAPJ.</span></div>
-                            </div>
-                            <div class="flex items-start space-x-4 p-3 bg-slate-50 rounded-lg border border-slate-200">
-                                <span class="bg-[#0f2a4a] text-white w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shrink-0">2</span>
-                                <div><strong class="text-sm text-slate-800">Digite seu Problema:</strong> <span class="text-sm text-slate-600">Descreva o desafio da sua comarca.</span></div>
-                            </div>
-                            <div class="flex items-start space-x-4 p-3 bg-blue-50 rounded-lg border border-blue-200">
-                                <span class="bg-blue-700 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shrink-0">3</span>
-                                <div><strong class="text-sm text-slate-800">Oficialize no Portal:</strong> <span class="text-sm text-slate-600">Insira os dados no portal oficial.</span></div>
-                            </div>
-                        </div>
+                    <div class="p-4 bg-slate-50 border rounded-lg">
+                        <h3 class="font-bold text-[#0f2a4a] text-sm mb-1">2. Workflow Híbrido</h3>
+                        <p class="text-xs text-slate-600">Passo a passo desde a geração no assistente de IA até a oficialização no portal papj.mpma.mp.br.</p>
                     </div>
-
-                    <div id="content-prompt" class="tab-content hidden space-y-6">
-                        <div>
-                            <span class="text-xs font-semibold text-[#0f2a4a] uppercase tracking-wider">Módulo 03</span>
-                            <h2 class="text-2xl font-bold text-slate-900 mt-1">Engenharia de Prompt Eficiente</h2>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="bg-red-50 border border-red-200 rounded-lg p-4">
-                                <h4 class="text-xs font-bold uppercase tracking-wider text-red-600 mb-1">❌ Prompt Ruim</h4>
-                                <p class="text-xs font-mono bg-white p-2 rounded border text-slate-700">"Faça um projeto"</p>
-                            </div>
-                            <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                                <h4 class="text-xs font-bold uppercase tracking-wider text-[#0f2a4a] mb-1">✓ Prompt Bom</h4>
-                                <p class="text-xs font-mono bg-white p-2 rounded border text-slate-700">"Crie um Projeto para combater poluição sonora..."</p>
-                            </div>
-                        </div>
+                    <div class="p-4 bg-slate-50 border rounded-lg">
+                        <h3 class="font-bold text-[#0f2a4a] text-sm mb-1">3. Engenharia de Prompt</h3>
+                        <p class="text-xs text-slate-600">Técnicas para contextualizar o problema com precisão e obter melhores resultados da ferramenta.</p>
                     </div>
-
-                    <div id="content-regras" class="tab-content hidden space-y-6">
-                        <div>
-                            <span class="text-xs font-semibold text-[#0f2a4a] uppercase tracking-wider">Módulo 04</span>
-                            <h2 class="text-2xl font-bold text-slate-900 mt-1">As 3 Regras de Ouro</h2>
-                        </div>
-                        <div class="space-y-3">
-                            <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg"><h4 class="text-xs font-bold text-[#0f2a4a] mb-1">1. Autonomia Profissional</h4><p class="text-xs text-slate-600">A IA sugere, você decide.</p></div>
-                            <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg"><h4 class="text-xs font-bold text-[#0f2a4a] mb-1">2. Indutor, não Executor</h4><p class="text-xs text-slate-600">Atuação em políticas públicas.</p></div>
-                            <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg"><h4 class="text-xs font-bold text-[#0f2a4a] mb-1">3. Validação Crítica</h4><p class="text-xs text-slate-600">Cheque a aderência local dos dados.</p></div>
-                        </div>
+                    <div class="p-4 bg-slate-50 border rounded-lg">
+                        <h3 class="font-bold text-[#0f2a4a] text-sm mb-1">4. As 3 Regras de Ouro</h3>
+                        <p class="text-xs text-slate-600">Autonomia profissional, papel indutor do MP e validação crítica obrigatória dos dados.</p>
                     </div>
                 </div>
             </div>
-        </main>
-    </div>
+        </div>
 
-    <!-- CONTEÚDO DO MÓDULO 2: PROCESSO SP-04 (ESTRATÉGIA) - COMPLETO -->
-    <div id="module-sp04" class="main-module hidden">
-        <main class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div class="lg:col-span-1 space-y-4">
-                <h2 class="text-lg font-semibold text-slate-700 border-b pb-2">Governança SP-04</h2>
-                <div class="space-y-3">
-                    <button onclick="switchSPTab('sp-ficha')" id="btn-sp-ficha" class="w-full text-left p-4 rounded-xl border transition-all flex items-start space-x-3 bg-white border-[#0f2a4a] ring-2 ring-blue-100 shadow-sm cursor-pointer">
-                        <div class="flex-shrink-0 w-8 h-8 rounded-lg bg-blue-50 text-[#0f2a4a] font-semibold flex items-center justify-center text-sm">📋</div>
-                        <div><h3 class="font-semibold text-slate-800 text-sm">1. Ficha e Enquadramento</h3><p class="text-xs text-slate-500 mt-1">Ciclo trienal, 190 indicadores e normas</p></div>
-                    </button>
-                    <button onclick="switchSPTab('sp-sipoc')" id="btn-sp-sipoc" class="w-full text-left p-4 rounded-xl border transition-all flex items-start space-x-3 bg-white border-slate-200 hover:border-blue-400 cursor-pointer">
-                        <div class="flex-shrink-0 w-8 h-8 rounded-lg bg-slate-100 text-slate-700 font-semibold flex items-center justify-center text-sm">🔄</div>
-                        <div><h3 class="font-semibold text-slate-800 text-sm">2. Matriz SIPOC Completa</h3><p class="text-xs text-slate-500 mt-1">Fornecedores, entradas e saídas</p></div>
-                    </button>
-                    <button onclick="switchSPTab('sp-subprocessos')" id="btn-sp-subprocessos" class="w-full text-left p-4 rounded-xl border transition-all flex items-start space-x-3 bg-white border-slate-200 hover:border-blue-400 cursor-pointer">
-                        <div class="flex-shrink-0 w-8 h-8 rounded-lg bg-slate-100 text-slate-700 font-semibold flex items-center justify-center text-sm">⚙️</div>
-                        <div><h3 class="font-semibold text-slate-800 text-sm">3. Subprocessos (RAT e RAE)</h3><p class="text-xs text-slate-500 mt-1">Passo a passo operacional</p></div>
-                    </button>
-                    <button onclick="switchSPTab('sp-diag')" id="btn-sp-diag" class="w-full text-left p-4 rounded-xl border transition-all flex items-start space-x-3 bg-white border-slate-200 hover:border-blue-400 cursor-pointer">
-                        <div class="flex-shrink-0 w-8 h-8 rounded-lg bg-slate-100 text-slate-700 font-semibold flex items-center justify-center text-sm">⚠️</div>
-                        <div><h3 class="font-semibold text-slate-800 text-sm">4. Diagnóstico As-Is</h3><p class="text-xs text-slate-500 mt-1">Gargalos e desvios normativos</p></div>
-                    </button>
-                    <button onclick="switchSPTab('sp-tobe')" id="btn-sp-tobe" class="w-full text-left p-4 rounded-xl border transition-all flex items-start space-x-3 bg-white border-slate-200 hover:border-blue-400 cursor-pointer">
-                        <div class="flex-shrink-0 w-8 h-8 rounded-lg bg-slate-100 text-slate-700 font-semibold flex items-center justify-center text-sm">
+        <!-- MÓDULO 2: SP-04 (ESTRATÉGIA) -->
+        <div id="secao-mod2" class="hidden space-y-6">
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                <span class="text-xs font-bold text-[#0f2a4a] uppercase">Governança SEPLAG</span>
+                <h2 class="text-2xl font-bold text-slate-900 mt-1">Processo SP-04: Monitorar a Gestão da Estratégia</h2>
+                <p class="text-slate-600 text-sm mt-2">Ciclo trienal de monitoramento com 12 RATs (trimestrais, área-meio) e 6 RAEs (semestrais, CGPE) acompanhando 190 indicadores.</p>
+
+                <!-- Abas Internas do Módulo 2 -->
+                <div class="flex flex-wrap gap-2 mt-6 border-b pb-4">
+                    <button onclick="mudarAbaSp('ficha')" id="tab-ficha" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-[#0f2a4a] text-white cursor-pointer">Ficha e Normas</button>
+                    <button onclick="mudarAbaSp('sipoc')" id="tab-sipoc" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-200 text-slate-700 cursor-pointer">Matriz SIPOC</button>
+                    <button onclick="mudarAbaSp('diag')" id="tab-diag" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-200 text-slate-700 cursor-pointer">Diagnóstico As-Is</button>
+                    <button onclick="mudarAbaSp('tobe')" id="tab-tobe" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-200 text-slate-700 cursor-pointer">Proposta To-Be</button>
+                </div>
+
+                <!-- Conteúdos das Abas do Módulo 2 -->
+                <div id="conteudo-ficha" class="mt-6 space-y-4 text-sm">
+                    <h3 class="font-bold text-[#0f2a4a]">Ficha Técnica do Processo</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="p-3 bg-slate-50 border rounded"><strong>Macroprocesso:</strong> Gestão da Estratégia Organizacional</div>
+                        <div class="p-3 bg-slate-50 border rounded"><strong>Fase PDCA:</strong> C – Checar</div>
+                        <div class="p-3 bg-slate-50 border rounded"><strong>Dono do Processo:</strong> SEPLAG (Ato Reg. 26/2022, art. 9º)</div>
+                        <div class="p-3 bg-slate-50 border rounded"><strong>Instância Deliberativa:</strong> CGPE (presidida pelo PGJ)</div>
+                    </div>
+                </div>
+
+                <div id="conteudo-sipoc" class="hidden mt-6 space-y-4 text-sm">
+                    <h3 class="font-bold text-[#0f2a4a]">Cadeia de Valor (SIPOC)</h3>
+                    <ul class="list-disc pl-5 space-y-2 text-slate-700">
+                        <li><strong>Fornecedores:</strong> Unidades administrativas, CAOs, SEPLAG, CGPE e CCOM.</li>
+                        <li><strong>Entradas:</strong> Resultados de indicadores e iniciativas (meio e finalísticas).</li>
+                        <li><strong>Processo:</strong> Abertura de janela → RAT trimestral → RAE semestral → Publicação de atas.</li>
+                        <li><strong>Saídas/Clientes:</strong> Portal da Transparência, deliberações e relatório anual ao CNMP.</li>
+                    </ul>
+                </div>
+
+                <div id="conteudo-diag" class="hidden mt-6 space-y-4 text-sm">
+                    <h3 class="font-bold text-[#0f2a4a]">Diagnóstico As-Is (Gargalos)</h3>
+                    <div class="p-3 bg-red-50 border border-red-200 rounded text-red-800">
+                        <strong>RAT Finalística não realizada:</strong> CAOs reportam apenas na RAE semestral, gerando atraso de até 6 meses na detecção de desvios na área finalística.
+                    </div>
+                </div>
+
+                <div id="conteudo-tobe" class="hidden mt-6 space-y-4 text-sm">
+                    <h3 class="font-bold text-[#0f2a4a]">Proposta To-Be (Inovações NEXUS)</h3>
+                    <ul class="list-disc pl-5 space-y-2 text-slate-700">
+                        <li>Implantação da RAT finalística trimestral com os CAOs.</li>
+                        <li>Comunicação em camadas (painel público, boletins e intranet).</li>
+                        <li>Gestão por exceção nas reuniões focando em faróis amarelos/vermelhos.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="max-w-7xl mx-auto px-6 py-6 text-center text-xs text-slate-400 border-t mt-12">
+        Ministério Público do Maranhão (MPMA) • SEPLAG
+    </footer>
+
+    <!-- Lógica JavaScript Limpa e Direta -->
+    <script>
+        function mudarModulo(num) {
+            const sec1 = document.getElementById('secao-mod1');
+            const sec2 = document.getElementById('secao-mod2');
+            const btn1 = document.getElementById('btn-mod1');
+            const btn2 = document.getElementById('btn-mod2');
+
+            if (num === 1) {
+                sec1.classList.remove('hidden');
+                sec2.classList.add('hidden');
+                btn1.className = "px-4 py-2 rounded-md text-xs font-bold bg-white text-[#0f2a4a] shadow cursor-pointer transition";
+                btn2.className = "px-4 py-2 rounded-md text-xs font-bold text-slate-200 hover:text-white cursor-pointer transition";
+            } else {
+                sec1.classList.add('hidden');
+                sec2.classList.remove('hidden');
+                btn2.className = "px-4 py-2 rounded-md text-xs font-bold bg-white text-[#0f2a4a] shadow cursor-pointer transition";
+                btn1.className = "px-4 py-2 rounded-md text-xs font-bold text-slate-200 hover:text-white cursor-pointer transition";
+            }
+        }
+
+        function mudarAbaSp(aba) {
+            const abas = ['ficha', 'sipoc', 'diag', 'tobe'];
+            
+            abas.forEach(a => {
+                document.getElementById('conteudo-' + a).classList.add('hidden');
+                document.getElementById('tab-' + a).className = "px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-200 text-slate-700 cursor-pointer";
+            });
+
+            document.getElementById('conteudo-' + aba).classList.remove('hidden');
+            document.getElementById('tab-' + aba).className = "px-3 py-1.5 rounded-lg text-xs font-bold bg-[#0f2a4a] text-white cursor-pointer";
+        }
+    </script>
+</body>
+</html>
