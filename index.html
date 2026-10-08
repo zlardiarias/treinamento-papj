@@ -38,7 +38,7 @@
     </header>
 
     <!-- CONTEÚDO DO MÓDULO 1: TREINAMENTO PAPJ -->
-    <div id="module-papj" class="module-block">
+    <div id="module-papj" class="main-module">
         <main class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div class="lg:col-span-1 space-y-4">
                 <h2 class="text-lg font-semibold text-slate-700 border-b pb-2">Módulos de Aprendizagem</h2>
@@ -149,7 +149,7 @@
     </div>
 
     <!-- CONTEÚDO DO MÓDULO 2: PROCESSO SP-04 (ESTRATÉGIA) - COMPLETO -->
-    <div id="module-sp04" class="module-block hidden">
+    <div id="module-sp04" class="main-module hidden">
         <main class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div class="lg:col-span-1 space-y-4">
                 <h2 class="text-lg font-semibold text-slate-700 border-b pb-2">Governança SP-04</h2>
@@ -171,74 +171,4 @@
                         <div><h3 class="font-semibold text-slate-800 text-sm">4. Diagnóstico As-Is</h3><p class="text-xs text-slate-500 mt-1">Gargalos e desvios normativos</p></div>
                     </button>
                     <button onclick="switchSPTab('sp-tobe')" id="btn-sp-tobe" class="w-full text-left p-4 rounded-xl border transition-all flex items-start space-x-3 bg-white border-slate-200 hover:border-blue-400 cursor-pointer">
-                        <div class="flex-shrink-0 w-8 h-8 rounded-lg bg-slate-100 text-slate-700 font-semibold flex items-center justify-center text-sm">🚀</div>
-                        <div><h3 class="font-semibold text-slate-800 text-sm">5. Proposta To-Be (NEXUS)</h3><p class="text-xs text-slate-500 mt-1">Inovações, IA e melhorias</p></div>
-                    </button>
-                    <button onclick="switchSPTab('sp-indicadores')" id="btn-sp-indicadores" class="w-full text-left p-4 rounded-xl border transition-all flex items-start space-x-3 bg-white border-slate-200 hover:border-blue-400 cursor-pointer">
-                        <div class="flex-shrink-0 w-8 h-8 rounded-lg bg-slate-100 text-slate-700 font-semibold flex items-center justify-center text-sm">📊</div>
-                        <div><h3 class="font-semibold text-slate-800 text-sm">6. Indicadores de Desempenho</h3><p class="text-xs text-slate-500 mt-1">Fórmulas e metas sugeridas</p></div>
-                    </button>
-                </div>
-            </div>
-
-            <div class="lg:col-span-2">
-                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-8 sticky top-6 max-h-[80vh] overflow-y-auto">
-                    
-                    <!-- Ficha -->
-                    <div id="content-sp-ficha" class="sp-content space-y-6">
-                        <div>
-                            <span class="text-xs font-semibold text-[#0f2a4a] uppercase tracking-wider">Processo SP-04</span>
-                            <h2 class="text-2xl font-bold text-slate-900 mt-1">Monitorar a Gestão da Estratégia Organizacional</h2>
-                            <p class="text-slate-600 text-sm mt-2">Ciclo trienal de monitoramento com 12 RATs (trimestrais, área-meio) e 6 RAEs (semestrais, CGPE). Acompanha 190 indicadores (110 administrativos e 80 finalísticos) e publica atas no Portal da Transparência.</p>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-                            <div class="bg-slate-50 p-4 rounded-lg border"><strong class="text-[#0f2a4a] block mb-1">Macroprocesso:</strong> Gestão da Estratégia Organizacional (gerencial)</div>
-                            <div class="bg-slate-50 p-4 rounded-lg border"><strong class="text-[#0f2a4a] block mb-1">Fase PDCA:</strong> C – Checar</div>
-                            <div class="bg-slate-50 p-4 rounded-lg border"><strong class="text-[#0f2a4a] block mb-1">Dono do Processo:</strong> SEPLAG (gestão do PEI – Ato Reg. 26/2022, art. 9º)</div>
-                            <div class="bg-slate-50 p-4 rounded-lg border"><strong class="text-[#0f2a4a] block mb-1">Instância Deliberativa:</strong> CGPE, presidida pelo PGJ e assessorada pelo Diretor da SEPLAG</div>
-                            <div class="bg-slate-50 p-4 rounded-lg border col-span-2"><strong class="text-[#0f2a4a] block mb-1">Base Normativa:</strong> Ato Reg. nº 26/2022-GPGJ (arts. 4º, 6º, 7º, 8º, 9º, 32, 33, 34); Ato Reg. nº 22/2020-GPGJ (art. 76); Lei nº 12.527/2011 (LAI), art. 7º, VII, "a".</div>
-                        </div>
-                    </div>
-
-                    <!-- SIPOC -->
-                    <div id="content-sp-sipoc" class="sp-content hidden space-y-6">
-                        <div>
-                            <span class="text-xs font-semibold text-[#0f2a4a] uppercase tracking-wider">Matriz SIPOC</span>
-                            <h2 class="text-2xl font-bold text-slate-900 mt-1">Cadeia de Valor do SP-04</h2>
-                        </div>
-                        <div class="space-y-3 text-sm">
-                            <div class="p-3 bg-slate-50 rounded-lg border"><strong class="text-[#0f2a4a]">Fornecedores:</strong> Unidades administrativas, CAOs, SEPLAG, CGPE e CCOM.</div>
-                            <div class="p-3 bg-slate-50 rounded-lg border"><strong class="text-[#0f2a4a]">Entradas:</strong> Resultados de indicadores e iniciativas (meio e finalísticas), painel de monitoramento do PEI e deliberações.</div>
-                            <div class="p-3 bg-slate-50 rounded-lg border"><strong class="text-[#0f2a4a]">Processo:</strong> 1. Abrir janela de reporte → 2. Realizar RAT (trimestral) → 3. Realizar RAE (semestral) → 4. Publicar atas e resultados → 5. Prestar contas anualmente (SP-05).</div>
-                            <div class="p-3 bg-blue-50 rounded-lg border"><strong class="text-blue-800">Saídas e Clientes:</strong> Painel atualizado, Atas das RATs/RAEs, deliberações da CGPE, Portal da Transparência para a Sociedade, relatório anual ao CNMP.</div>
-                        </div>
-                    </div>
-
-                    <!-- Subprocessos -->
-                    <div id="content-sp-subprocessos" class="sp-content hidden space-y-6">
-                        <div>
-                            <span class="text-xs font-semibold text-[#0f2a4a] uppercase tracking-wider">Subprocessos</span>
-                            <h2 class="text-2xl font-bold text-slate-900 mt-1">Detalhamento Operacional (RAT e RAE)</h2>
-                        </div>
-                        <div class="space-y-4 text-sm">
-                            <div class="p-4 bg-slate-50 rounded-lg border">
-                                <h4 class="font-bold text-[#0f2a4a] mb-2">Subprocesso RAT (Trimestral - Área-meio)</h4>
-                                <ul class="list-disc pl-5 space-y-1 text-xs text-slate-600">
-                                    <li>SEPLAG convoca RAT e pede atualização do painel (≥ 7 dias).</li>
-                                    <li>Unidades administrativas atualizam indicadores e iniciativas no painel.</li>
-                                    <li>SEPLAG verifica completude; cobra pendências se necessário.</li>
-                                    <li>Consolidação da análise de desempenho e realização da reunião RAT.</li>
-                                    <li>Registro de propostas para pauta da RAE e lavratura da ata.</li>
-                                </ul>
-                            </div>
-                            <div class="p-4 bg-slate-50 rounded-lg border">
-                                <h4 class="font-bold text-[#0f2a4a] mb-2">Subprocesso RAE (Semestral - CGPE)</h4>
-                                <ul class="list-disc pl-5 space-y-1 text-xs text-slate-600">
-                                    <li>SEPLAG pede atualização do painel aos CAOs e consolida resultados.</li>
-                                    <li>Envio da pauta à CGPE (≥ 3 dias de antecedência).</li>
-                                    <li>Realização da RAE com verificação de quórum (maioria simples).</li>
-                                    <li>Deliberação sobre resultados e alterações do PTO/PEI.</li>
-                                    <li>Assinatura da ata, publicação no Portal da Transparência/Intranet e divulgação pela CCOM.</li>
-                                </ul>
-                            </div>
-                        </div>
+                        <div class="flex-shrink-0 w-8 h-8 rounded-lg bg-slate-100 text-slate-700 font-semibold flex items-center justify-center text-sm">
